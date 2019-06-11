@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 //import css
 import css from './styles/style.styl';
 //import Components
-import Main from './components/Main';
+import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -12,7 +12,7 @@ import store, { history } from './store';
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Main}>
+      <Route path="/" component={App}>
         {/*if it matches anything with / grap the main component and then,
       depending on main structure, either pass PhotoGrid, or pass Single(they are going to be children of the main component)
       */}
