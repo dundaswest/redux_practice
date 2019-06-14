@@ -1,5 +1,4 @@
 import React from 'react';
-import comments from '../reducers/comments';
 
 const Comments = React.createClass({
   renderComment(comment, i) {
@@ -8,24 +7,37 @@ const Comments = React.createClass({
         <p>
           <strong>{comment.user}</strong>
           {comment.text}
-          <button className="remove-comment">&times;</button>
+          <button
+            className="remove-comment"
+            onClick={
+              /*this.props.removeComment.bind(
+              null,
+              this.props.params.postId,
+              i
+            )
+            */
+              () => this.props.removeComment(this.props.params.postId, i)
+              // console.log('remove')
+            }
+          >
+            &times;
+          </button>
         </p>
       </div>
     );
   },
   handleSubmit(e) {
-    e.preventDefault(e);
-
+    e.preventDefault();
     const { postId } = this.props.params;
     const author = this.refs.author.value;
     const comment = this.refs.comment.value;
-    console.log(postId, author, comment);
+
     this.props.addComment(postId, author, comment);
+    this.refs.commentForm.reset();
   },
   render() {
     return (
-      <div className="comment">
-        I'm the comments!!!
+      <div className="comments">
         {this.props.postComments.map(this.renderComment)}
         <form
           ref="commentForm"
