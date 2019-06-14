@@ -9,15 +9,8 @@ const Comments = React.createClass({
           {comment.text}
           <button
             className="remove-comment"
-            onClick={
-              /*this.props.removeComment.bind(
-              null,
-              this.props.params.postId,
-              i
-            )
-            */
-              () => this.props.removeComment(this.props.params.postId, i)
-              // console.log('remove')
+            onClick={() =>
+              this.props.removeComment(this.props.params.postId, i)
             }
           >
             &times;
