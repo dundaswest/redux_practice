@@ -9,6 +9,7 @@ function postComments(state = [], action) {
           text: action.comment
         }
       ];
+
     case 'REMOVE_COMMENT':
       // we need to return the new state without the deleted comment
       return [
